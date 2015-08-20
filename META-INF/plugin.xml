@@ -1,7 +1,7 @@
 <idea-plugin version="3" url="https://github.com/pbreault/adb-idea">
     <id>com.developerphil.adbidea</id>
     <name>ADB Idea</name>
-    <version>1.1.2</version>
+    <version>1.2.0</version>
     <vendor url="http://www.developerphil.com">Philippe Breault</vendor>
 
     <description><![CDATA[
@@ -24,13 +24,25 @@
 
 
     <change-notes><![CDATA[
+        <b>1.2.0</b>
+        <ul>
+            <li>FEATURE: New "ADB Operations Popup...". Windows: Ctrl+Alt+Shift+A  -  Mac OSX: Ctrl+Shift+A</li>
+        </ul>
+        <b>1.1.4</b>
+        <ul>
+            <li>BUGFIX: Start & Restart is broken when the activity is merged in the manifest.</li>
+        </ul>
+        <b>1.1.3</b>
+        <ul>
+            <li>BUGFIX: Fixed crash on Android Studio 0.8.10</li>
+        </ul>
         <b>1.1.2</b>
         <ul>
-            <li>BUGFIX: Fix device chooser on Android Studio 0.8.1</li>
+            <li>BUGFIX: Fixed device chooser on Android Studio 0.6+</li>
         </ul>
         <b>1.1.1</b>
         <ul>
-            <li>BUGFIX: Fix Crash on Android Studio 0.4.4</li>
+            <li>BUGFIX: Fixed crash on Android Studio 0.4.4</li>
             <li>BUGFIX: Don't show test projects in the module selection dialog</li>
         </ul>
         <b>1.1.0</b>
@@ -48,6 +60,14 @@
 
     <actions>
         <group id="AdbIdea" text="_ADB Idea" description="ADB Idea" popup="true">
+            <action id="com.developerphil.adbidea.action.AdbIdeaQuickList"
+                    class="com.developerphil.adbidea.action.QuickListAction" text="ADB Operations Popup..."
+                    description="List all the adb idea operations in a popup">
+                <keyboard-shortcut keymap="Mac OS X" first-keystroke="shift ctrl A"/>
+                <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="shift ctrl A"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt A"/>
+            </action>
+            <separator />
             <action id="com.developerphil.adbidea.action.UninstallAction"
                     class="com.developerphil.adbidea.action.UninstallAction"
                     text="ADB Uninstall App"
